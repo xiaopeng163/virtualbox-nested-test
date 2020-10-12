@@ -1,0 +1,66 @@
+# Test VirtualBox Nested Virtualization
+
+## create VM through vagrant
+
+
+```
+vagrant up
+```
+
+## config nested 
+
+shutdown vm
+
+```
+vagrant halt
+```
+
+Open VirtualBox, setting-system-processor-enable nested.
+
+
+```
+vagrant up
+```
+
+have fun.
+
+pre-installed virutalbox and docker-machine inside of this vagrant host
+
+
+```
+vagrant ssh
+Last login: Mon Oct 12 22:38:05 2020 from 10.0.2.2
+-bash: warning: setlocale: LC_CTYPE: cannot change locale (UTF-8): No such file or directory
+[vagrant@host1 ~]$ docker-machine create demo
+Running pre-create checks...
+(demo) Image cache directory does not exist, creating it at /home/vagrant/.docker/machine/cache...
+(demo) No default Boot2Docker ISO found locally, downloading the latest release...
+(demo) Latest release for github.com/boot2docker/boot2docker is v19.03.12
+(demo) Downloading /home/vagrant/.docker/machine/cache/boot2docker.iso from https://github.com/boot2docker/boot2docker/releases/download/v19.03.12/boot2docker.iso...
+(demo) 0%....10%....20%....30%....40%....50%....60%....70%....80%....90%....100%
+Creating machine...
+(demo) Copying /home/vagrant/.docker/machine/cache/boot2docker.iso to /home/vagrant/.docker/machine/machines/demo/boot2docker.iso...
+(demo) Creating VirtualBox VM...
+(demo) Creating SSH key...
+(demo) Starting the VM...
+(demo) Check network to re-create if needed...
+(demo) Found a new host-only adapter: "vboxnet0"
+(demo) Waiting for an IP...
+Waiting for machine to be running, this may take a few minutes...
+Detecting operating system of created instance...
+Waiting for SSH to be available...
+Detecting the provisioner...
+Provisioning with boot2docker...
+Copying certs to the local machine directory...
+Copying certs to the remote machine...
+Setting Docker configuration on the remote daemon...
+Checking connection to Docker...
+Docker is up and running!
+To see how to connect your Docker Client to the Docker Engine running on this virtual machine, run: docker-machine env demo
+[vagrant@host1 ~]$ docker-machine ssh demo
+   ( '>')
+  /) TC (\   Core is distributed with ABSOLUTELY NO WARRANTY.
+ (/-_--_-\)           www.tinycorelinux.net
+
+docker@demo:~$
+```
